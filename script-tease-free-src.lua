@@ -1,8 +1,6 @@
---// SERVICES
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 
---// MAIN FUNCTION
 local function createUI()
     if CoreGui:FindFirstChild("WACKShopUI") then
         CoreGui.WACKShopUI:Destroy()
@@ -14,7 +12,6 @@ local function createUI()
     ScreenGui.Parent = CoreGui
     pcall(function() syn.protect_gui(ScreenGui) end)
 
-    --================ MAIN FRAME =================
     local Main = Instance.new("Frame", ScreenGui)
     Main.Size = UDim2.new(0, 380, 0, 480)
     Main.Position = UDim2.new(0.52, -190, 0.55, -240)
@@ -30,7 +27,6 @@ local function createUI()
     MainStroke.Transparency = 0.25
     MainStroke.Color = Color3.fromRGB(255, 200, 0)
 
-    --================ TITLE =================
     local Title = Instance.new("TextLabel", Main)
     Title.Size = UDim2.new(1,0,0,55)
     Title.BackgroundTransparency = 1
@@ -39,7 +35,6 @@ local function createUI()
     Title.TextSize = 22
     Title.TextColor3 = Color3.fromRGB(255, 220, 120)
 
-    --================ SCROLL =================
     local Scroll = Instance.new("ScrollingFrame", Main)
     Scroll.Position = UDim2.new(0,10,0,65)
     Scroll.Size = UDim2.new(1,-20,1,-75)
@@ -54,7 +49,6 @@ local function createUI()
         Scroll.CanvasSize = UDim2.new(0,0,0,ScrollLayout.AbsoluteContentSize.Y + 10)
     end)
 
-    --================ DATA =================
     local functionCategories = {
         ["ผู้สร้าง By Wack Shop"] = {
             ["เตะออกแมพ"] = "https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua",
@@ -64,7 +58,6 @@ local function createUI()
         },
     }
 
-    --================ CREATE CATEGORIES =================
     for category, scripts in pairs(functionCategories) do
         local CatFrame = Instance.new("Frame", Scroll)
         CatFrame.BackgroundColor3 = Color3.fromRGB(18,18,28)
@@ -134,7 +127,6 @@ local function createUI()
         Layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(resize)
     end
 
-    --================ TOGGLE BUTTON =================
     local Toggle = Instance.new("TextButton", ScreenGui)
     Toggle.Size = UDim2.new(0,48,0,48)
     Toggle.Position = UDim2.new(0,20,0,120)
