@@ -115,7 +115,7 @@ local function createUI()
             ["🌟 ดึงคน false"] = "https://pastebin.com/raw/CuDBzSm6"
         },
         ["🔍 ESP & การมองเห็น"] = {
-            ["🔍 ESP Players"] = "https://pastebin.com/raw/ZkLhNuDL",
+            ["🔍 ESP Players"] = "https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/EPS-MAP-ALL/EPS-MAP-ALL.lua",
             ["🤖 ESP BOT,NPC"] = "https://pastebin.com/raw/q26QuUBF"
         }
     }
@@ -204,4 +204,5 @@ while true do
     if not CoreGui:FindFirstChild("WACKShopUI") then
         createUI()
     end
+
 end
