@@ -112,10 +112,11 @@ local function createUI()
             ["🌌 หลุมดำ"] = "https://pastebin.com/raw/pkZnU5P5",
             ["🥴 ชักว่าว"] = "https://pastefy.app/wa3v2Vgm/raw",
             ["⬜ F3X "] = "https://pastebin.com/raw/FZmTykdY",
+            ["🛹 เตะออกแมพ "] = "https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua",
             ["🌟 ดึงคน false"] = "https://pastebin.com/raw/CuDBzSm6"
         },
         ["🔍 ESP & การมองเห็น"] = {
-            ["🔍 ESP Players"] = "https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/EPS-MAP-ALL/EPS-MAP-ALL.lua",
+            ["🔍 ESP Players"] = "https://pastebin.com/raw/ZkLhNuDL",
             ["🤖 ESP BOT,NPC"] = "https://pastebin.com/raw/q26QuUBF"
         }
     }
@@ -204,5 +205,4 @@ while true do
     if not CoreGui:FindFirstChild("WACKShopUI") then
         createUI()
     end
-
 end
