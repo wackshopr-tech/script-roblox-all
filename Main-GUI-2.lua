@@ -83,5 +83,5 @@ oldBtn.MouseButton1Click:Connect(function()
 end)
 
 newBtn.MouseButton1Click:Connect(function()
-    runScript("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/Gui-New")
+    runScript("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/Gui-New.lua")
 end)
