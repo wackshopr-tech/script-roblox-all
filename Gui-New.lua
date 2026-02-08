@@ -214,6 +214,8 @@ Tab3:NewButton("🟡 เสกของ", function() loadstring(game:HttpGet("ht
 Tab3:NewButton("🟡 อมตะ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/GOD-MAIN/GOD-MAIN.lua"))() end)
 Tab3:NewButton("🟡 Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
 Tab3:NewButton("🟡 Kruel Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Veaquach/kruel/refs/heads/main/kruel%20obf.txt"))() end)
+Tab3:NewButton("🟡 Quirky CMD", function() loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))() end)
+
 
 -- แกล้ง
 Tab4:NewButton("🟢 หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
