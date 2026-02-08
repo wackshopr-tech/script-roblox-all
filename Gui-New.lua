@@ -212,6 +212,8 @@ Tab2:NewButton("Hitbox ", function() loadstring(game:HttpGet("https://pastebin.c
 Tab3:NewButton("เพิ่มความลื่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/mXhbHDVk"))() end)
 Tab3:NewButton("เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
 Tab3:NewButton("อมตะ", function() loadstring(game:HttpGet("https://pastebin.com/raw/EjrTrMwC"))() end)
+Tab3:NewButton("Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
+Tab3:NewButton("Kruel Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Veaquach/kruel/refs/heads/main/kruel%20obf.txt"))() end)
 
 -- แกล้ง
 Tab4:NewButton("หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
@@ -220,7 +222,7 @@ Tab4:NewButton("ดึงคน false", function() loadstring(game:HttpGet("http
 Tab4:NewButton("เสวขวย", function() loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() end)
 Tab4:NewButton("F3X ", function() loadstring(game:HttpGet("https://pastebin.com/raw/FZmTykdY"))() end)
 
-
+-- มองทะลุ
 Tab5:NewButton("ESP Players", function() loadstring(game:HttpGet("https://pastefy.app/5EG1OsZj/raw"))() end)
 Tab5:NewButton("ESP NPC", function() loadstring(game:HttpGet("https://pastefy.app/CWOTa3im/raw"))() end)
 
