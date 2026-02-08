@@ -34,7 +34,7 @@ local function label(text, y, size, bold)
     return l
 end
 
-label("WACK SHOP", 15, UDim2.new(1,-40,0,40), true)
+label("WACK SHOP สำหรับทุกแมพ !!", 15, UDim2.new(1,-40,0,40), true)
 label("WACK SHOP ได้เพิ่มระบบ GUI ทั้ง 2 แบบเพื่อสดวกต่อการใช้งานของทุกคน !!! ", 55, UDim2.new(1,-40,0,20), false)
 
 local function button(text, y)
