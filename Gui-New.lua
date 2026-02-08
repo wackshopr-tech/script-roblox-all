@@ -196,35 +196,35 @@ local Tab4 = Window:NewTab("แกล้ง", "🤡")
 local Tab5 = Window:NewTab("ดวงตเทพมั้งง", "👁️")
 
 -- หลัก
-Tab1:NewButton("บิน", function() loadstring(game:HttpGet("https://pastebin.com/raw/iUVERBrs"))() end)
-Tab1:NewButton("วิ่งเร็ว", function() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100 end)
-Tab1:NewButton("วาป", function() loadstring(game:HttpGet("https://pastebin.com/raw/K5FYvtvN"))() end)
-Tab1:NewButton("ทะลุกำแพง", function() loadstring(game:HttpGet("https://pastebin.com/raw/7Qab6kg9"))() end)
-Tab1:NewButton("หายตัว", function() loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))() end)
+Tab1:NewButton("🔴 บิน", function() loadstring(game:HttpGet("https://pastebin.com/raw/iUVERBrs"))() end)
+Tab1:NewButton("🔴 วิ่งเร็ว", function() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100 end)
+Tab1:NewButton("🔴 วาป", function() loadstring(game:HttpGet("https://pastebin.com/raw/K5FYvtvN"))() end)
+Tab1:NewButton("🔴 ทะลุกำแพง", function() loadstring(game:HttpGet("https://pastebin.com/raw/7Qab6kg9"))() end)
+Tab1:NewButton("🔴 หายตัว", function() loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))() end)
 
 
 -- โจมตี
-Tab2:NewButton("ล็อคหัวผู้เล่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/W46s2cTh"))() end)
-Tab2:NewButton("ฆ่าบอทออร่า", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/kill-all-bot/killall-npc..lua"))() end)
-Tab2:NewButton("Hitbox ", function() loadstring(game:HttpGet("https://pastebin.com/raw/iRyTtfmf"))() end)
+Tab2:NewButton("🟠 ล็อคหัวผู้เล่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/W46s2cTh"))() end)
+Tab2:NewButton("🟠 ฆ่าบอทออร่า", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/kill-all-bot/killall-npc..lua"))() end)
+Tab2:NewButton("🟠 Hitbox ", function() loadstring(game:HttpGet("https://pastebin.com/raw/iRyTtfmf"))() end)
 
 -- เครื่องมือ
-Tab3:NewButton("เพิ่มความลื่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/mXhbHDVk"))() end)
-Tab3:NewButton("เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
-Tab3:NewButton("อมตะ", function() loadstring(game:HttpGet("https://pastebin.com/raw/EjrTrMwC"))() end)
-Tab3:NewButton("Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
-Tab3:NewButton("Kruel Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Veaquach/kruel/refs/heads/main/kruel%20obf.txt"))() end)
+Tab3:NewButton("🟡 เพิ่มความลื่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/mXhbHDVk"))() end)
+Tab3:NewButton("🟡 เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
+Tab3:NewButton("🟡 อมตะ", function() loadstring(game:HttpGet("https://pastebin.com/raw/EjrTrMwC"))() end)
+Tab3:NewButton("🟡 Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
+Tab3:NewButton("🟡 Kruel Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Veaquach/kruel/refs/heads/main/kruel%20obf.txt"))() end)
 
 -- แกล้ง
-Tab4:NewButton("หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
-Tab4:NewButton("เตะออกแมพ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua"))() end)
-Tab4:NewButton("ดึงคน false", function() loadstring(game:HttpGet("https://pastebin.com/raw/CuDBzSm6"))() end)
-Tab4:NewButton("เสวขวย", function() loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() end)
-Tab4:NewButton("F3X ", function() loadstring(game:HttpGet("https://pastebin.com/raw/FZmTykdY"))() end)
+Tab4:NewButton("🟢 หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
+Tab4:NewButton("🟢 เตะออกแมพ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua"))() end)
+Tab4:NewButton("🟢 ดึงคน false", function() loadstring(game:HttpGet("https://pastebin.com/raw/CuDBzSm6"))() end)
+Tab4:NewButton("🟢 เสวขวย", function() loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() end)
+Tab4:NewButton("🟢 F3X ", function() loadstring(game:HttpGet("https://pastebin.com/raw/FZmTykdY"))() end)
 
 -- มองทะลุ
-Tab5:NewButton("ESP Players", function() loadstring(game:HttpGet("https://pastefy.app/5EG1OsZj/raw"))() end)
-Tab5:NewButton("ESP NPC", function() loadstring(game:HttpGet("https://pastefy.app/CWOTa3im/raw"))() end)
+Tab5:NewButton("🟣 ESP Players", function() loadstring(game:HttpGet("https://pastefy.app/5EG1OsZj/raw"))() end)
+Tab5:NewButton("🟣 ESP NPC", function() loadstring(game:HttpGet("https://pastefy.app/CWOTa3im/raw"))() end)
 
 -- แจ้งเตือนเมื่อโหลดเสร็จ
 game:GetService("StarterGui"):SetCore("SendNotification", {
