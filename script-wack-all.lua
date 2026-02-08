@@ -104,7 +104,7 @@ local function createUI()
             ["🎁 เสกของ"] = "https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua",
             ["🔥 บูส FPS"] = "https://pastebin.com/raw/mXhbHDVk",
             ["🎩 Hitbox 32%"] = "https://pastebin.com/raw/iRyTtfmf",
-            ["💪🏻 อมตะ"] = "https://pastebin.com/raw/EjrTrMwC",
+            ["💪🏻 อมตะ"] = "https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/GOD-MAIN/GOD-MAIN.lua",
             ["👾 คีย์บอร์ด"] = "https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt",
             ["👻 หายตัว"] = "https://pastebin.com/raw/3Rnd9rHf"
         },
@@ -206,3 +206,4 @@ while true do
         createUI()
     end
 end
+
