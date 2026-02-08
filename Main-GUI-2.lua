@@ -79,7 +79,7 @@ local function runScript(url)
 end
 
 oldBtn.MouseButton1Click:Connect(function()
-    runScript("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/script-wack-all.lua")
+    runScript("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/Gui-Old.lua")
 end)
 
 newBtn.MouseButton1Click:Connect(function()
