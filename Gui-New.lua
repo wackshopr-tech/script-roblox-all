@@ -226,7 +226,7 @@ Tab4:NewButton("🟢 F3X ", function() loadstring(game:HttpGet("https://pastebin
 
 -- มองทะลุ
 Tab5:NewButton("🟣 ESP Players", function() loadstring(game:HttpGet("https://pastefy.app/AdgJc7Aq/raw"))() end)
-Tab5:NewButton("🟣 ESP NPC", function() loadstring(game:HttpGet("https://pastefy.app/CWOTa3im/raw"))() end)
+Tab5:NewButton("🟣 ESP NPC", function() loadstring(game:HttpGet("https://pastefy.app/kjiSbkX3/raw"))() end)
 
 -- แจ้งเตือนเมื่อโหลดเสร็จ
 game:GetService("StarterGui"):SetCore("SendNotification", {
