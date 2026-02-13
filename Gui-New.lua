@@ -201,6 +201,8 @@ Tab1:NewButton("🔴 วิ่งเร็ว", function() game.Players.LocalPla
 Tab1:NewButton("🔴 วาป", function() loadstring(game:HttpGet("https://pastebin.com/raw/K5FYvtvN"))() end)
 Tab1:NewButton("🔴 ทะลุกำแพง", function() loadstring(game:HttpGet("https://pastebin.com/raw/7Qab6kg9"))() end)
 Tab1:NewButton("🔴 หายตัว", function() loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))() end)
+Tab1:NewButton("🔴 อมตะ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/GOD-MAIN/GOD-MAIN.lua"))() end)
+
 
 
 -- โจมตี
@@ -211,7 +213,6 @@ Tab2:NewButton("🟠 Hitbox ", function() loadstring(game:HttpGet("https://paste
 -- เครื่องมือ
 Tab3:NewButton("🟡 เพิ่มความลื่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/mXhbHDVk"))() end)
 Tab3:NewButton("🟡 เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
-Tab3:NewButton("🟡 อมตะ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/GOD-MAIN/GOD-MAIN.lua"))() end)
 Tab3:NewButton("🟡 Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
 Tab3:NewButton("🟡 Kruel Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Veaquach/kruel/refs/heads/main/kruel%20obf.txt"))() end)
 Tab3:NewButton("🟡 Quirky CMD", function() loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))() end)
