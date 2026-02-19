@@ -25,9 +25,27 @@ local stroke = Instance.new("UIStroke", mainFrame)
 stroke.Color = Color3.fromRGB(0,170,255)
 stroke.Thickness = 1.5
 
--- =========================
--- DRAG SYSTEM (Mobile + PC)
--- =========================
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Parent = mainFrame
+titleLabel.Size = UDim2.new(1, 0, 0, 35)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "HITBOX WACK SHOP"
+titleLabel.TextColor3 = Color3.fromRGB(0,200,255)
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextSize = 16
+titleLabel.TextStrokeTransparency = 0.8
+titleLabel.ZIndex = 2
+
+local credit = Instance.new("TextLabel")
+credit.Parent = mainFrame
+credit.Size = UDim2.new(1, 0, 0, 18)
+credit.Position = UDim2.new(0,0,1,-20)
+credit.BackgroundTransparency = 1
+credit.Text = "By WACK SHOP"
+credit.TextColor3 = Color3.fromRGB(120,170,255)
+credit.Font = Enum.Font.Gotham
+credit.TextSize = 11
+credit.ZIndex = 2
 
 local dragging = false
 local dragInput
@@ -47,11 +65,9 @@ end
 mainFrame.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1
 	or input.UserInputType == Enum.UserInputType.Touch then
-		
 		dragging = true
 		dragStart = input.Position
 		startPos = mainFrame.Position
-
 		input.Changed:Connect(function()
 			if input.UserInputState == Enum.UserInputState.End then
 				dragging = false
@@ -72,27 +88,6 @@ UserInputService.InputChanged:Connect(function(input)
 		update(input)
 	end
 end)
-
--- =========================
-
-local titleLabel = Instance.new("TextLabel")
-titleLabel.Parent = mainFrame
-titleLabel.Size = UDim2.new(1, 0, 0, 35)
-titleLabel.BackgroundTransparency = 1
-titleLabel.Text = "HITBOX CONTROLLER"
-titleLabel.TextColor3 = Color3.fromRGB(0,200,255)
-titleLabel.Font = Enum.Font.GothamBold
-titleLabel.TextSize = 16
-
-local credit = Instance.new("TextLabel")
-credit.Parent = mainFrame
-credit.Size = UDim2.new(1, 0, 0, 18)
-credit.Position = UDim2.new(0,0,1,-20)
-credit.BackgroundTransparency = 1
-credit.Text = "By WACK SHOP"
-credit.TextColor3 = Color3.fromRGB(120,170,255)
-credit.Font = Enum.Font.Gotham
-credit.TextSize = 11
 
 local textBox = Instance.new("TextBox")
 textBox.Parent = mainFrame
@@ -127,6 +122,8 @@ clickSound.Volume = 1
 _G.HeadSize = tonumber(textBox.Text) or 32
 _G.Disabled = true
 
+local originalSizes = {}
+
 textBox.FocusLost:Connect(function()
 	local newSize = tonumber(textBox.Text)
 	if newSize then
@@ -136,13 +133,27 @@ textBox.FocusLost:Connect(function()
 	end
 end)
 
+local function resetHitboxes()
+	for player, size in pairs(originalSizes) do
+		if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			local hrp = player.Character.HumanoidRootPart
+			hrp.Size = size
+			hrp.Transparency = 0
+			hrp.Material = Enum.Material.Plastic
+			hrp.Color = Color3.new(1,1,1)
+			hrp.CanCollide = true
+		end
+	end
+	originalSizes = {}
+end
+
 toggleButton.MouseButton1Click:Connect(function()
 	_G.Disabled = not _G.Disabled
 	clickSound:Play()
-
 	if _G.Disabled then
 		toggleButton.Text = "▶ เปิด Hitbox"
 		toggleButton.BackgroundColor3 = Color3.fromRGB(0,100,200)
+		resetHitboxes()
 	else
 		toggleButton.Text = "■ ปิด Hitbox"
 		toggleButton.BackgroundColor3 = Color3.fromRGB(0,170,255)
@@ -153,14 +164,15 @@ RunService.RenderStepped:Connect(function()
 	if not _G.Disabled then
 		for _, v in pairs(Players:GetPlayers()) do
 			if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
-				pcall(function()
-					local hrp = v.Character.HumanoidRootPart
-					hrp.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
-					hrp.Transparency = 0.6
-					hrp.Material = Enum.Material.Neon
-					hrp.Color = Color3.fromRGB(0,170,255)
-					hrp.CanCollide = false
-				end)
+				local hrp = v.Character.HumanoidRootPart
+				if not originalSizes[v] then
+					originalSizes[v] = hrp.Size
+				end
+				hrp.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+				hrp.Transparency = 0.6
+				hrp.Material = Enum.Material.Neon
+				hrp.Color = Color3.fromRGB(0,170,255)
+				hrp.CanCollide = false
 			end
 		end
 	end
