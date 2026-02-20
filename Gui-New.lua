@@ -221,7 +221,7 @@ Tab3:NewButton("🟡 Quirky CMD", function() loadstring(game:HttpGet("https://gi
 -- แกล้ง
 Tab4:NewButton("🟢 หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
 Tab4:NewButton("🟢 เตะออกแมพ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua"))() end)
-Tab4:NewButton("🟢 ดึงคน false", function() loadstring(game:HttpGet("https://pastefy.app/g3se7xpS/raw"))() end)
+Tab4:NewButton("🟢 ดึงคน false", function() loadstring(game:HttpGet("https://pastefy.app/25ye9OEx/raw"))() end)
 Tab4:NewButton("🟢 เสวขวย", function() loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() end)
 Tab4:NewButton("🟢 F3X ", function() loadstring(game:HttpGet("https://pastebin.com/raw/FZmTykdY"))() end)
 
