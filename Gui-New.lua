@@ -222,6 +222,7 @@ Tab3:NewButton("🟡 Quirky CMD", function() loadstring(game:HttpGet("https://gi
 
 
 -- แกล้ง
+Tab4:NewButton("🟢 ปรับความเร็วรถ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Speed-car/Speed-car.lua"))() end)
 Tab4:NewButton("🟢 หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
 Tab4:NewButton("🟢 ชนกระเด็น", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua"))() end)
 Tab4:NewButton("🟢 ดึงคน false", function() loadstring(game:HttpGet("https://pastefy.app/25ye9OEx/raw"))() end)
