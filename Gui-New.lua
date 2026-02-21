@@ -207,7 +207,7 @@ Tab1:NewButton("🔴 อมตะ", function() loadstring(game:HttpGet("https://
 
 
 -- โจมตี
-Tab2:NewButton("🟠 ล็อค หัวผู้เล่น", function() loadstring(game:HttpGet("https://pastefy.app/1tG326Ds/raw"))() end)
+Tab2:NewButton("🟠 ล็อค หัวผู้เล่น", function() loadstring(game:HttpGet("https://pastefy.app/8upl1DWT/raw"))() end)
 Tab2:NewButton("🟠 ฆ่า บอทออร่า", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/kill-all-bot/killall-npc..lua"))() end)
 Tab2:NewButton("🟠 Hitbox ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Hitbox/hitbox.lua"))() end)
 
