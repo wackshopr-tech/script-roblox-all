@@ -197,6 +197,7 @@ local Tab5 = Window:NewTab("ดวงตเทพมั้งง", "👁️")
 
 -- หลัก
 Tab1:NewButton("🔴 บิน", function() loadstring(game:HttpGet("https://pastebin.com/raw/iUVERBrs"))() end)
+Tab1:NewButton("🔴 กระโดดไม่จำกัด", function() loadstring(game:HttpGet("https://pastefy.app/aNP2E0dd/raw"))() end)
 Tab1:NewButton("🔴 วิ่งเร็ว", function() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100 end)
 Tab1:NewButton("🔴 วาป", function() loadstring(game:HttpGet("https://pastebin.com/raw/K5FYvtvN"))() end)
 Tab1:NewButton("🔴 ทะลุกำแพง", function() loadstring(game:HttpGet("https://pastebin.com/raw/7Qab6kg9"))() end)
