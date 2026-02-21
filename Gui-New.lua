@@ -229,7 +229,7 @@ Tab4:NewButton("🟢 เสวขวย", function() loadstring(game:HttpGet("ht
 Tab4:NewButton("🟢 F3X ", function() loadstring(game:HttpGet("https://pastebin.com/raw/FZmTykdY"))() end)
 
 -- มองทะลุ
-Tab5:NewButton("🟣 ESP Players", function() loadstring(game:HttpGet("https://pastefy.app/AdgJc7Aq/raw"))() end)
+Tab5:NewButton("🟣 ESP Players", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/EPS-MAP-ALL/EPS-MAP-ALL.lua"))() end)
 Tab5:NewButton("🟣 ESP NPC", function() loadstring(game:HttpGet("https://pastefy.app/kjiSbkX3/raw"))() end)
 
 -- แจ้งเตือนเมื่อโหลดเสร็จ
