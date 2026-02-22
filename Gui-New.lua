@@ -212,7 +212,7 @@ Tab2:NewButton("🟠 ฆ่า บอทออร่า", function() loadstring(
 Tab2:NewButton("🟠 Hitbox ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Hitbox/hitbox.lua"))() end)
 
 -- เครื่องมือ
-Tab3:NewButton("🟡 เพิ่มความลื่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/mXhbHDVk"))() end)
+Tab3:NewButton("🟡 เพิ่มความลื่น", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Boots-fps/Boots-fps.lua"))() end)
 Tab3:NewButton("🟡 แมพสว่าง", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Lighting/Lighting.lua"))() end)
 Tab3:NewButton("🟡 เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
 Tab3:NewButton("🟡 แป้นพิมพ์", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))() end)
