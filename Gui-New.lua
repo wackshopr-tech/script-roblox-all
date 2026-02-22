@@ -213,7 +213,7 @@ Tab2:NewButton("🟠 Hitbox ", function() loadstring(game:HttpGet("https://raw.g
 
 -- เครื่องมือ
 Tab3:NewButton("🟡 เพิ่มความลื่น", function() loadstring(game:HttpGet("https://pastebin.com/raw/mXhbHDVk"))() end)
-Tab3:NewButton("🟡 แมพสว่าง", function() loadstring(game:HttpGet("https://pastefy.app/FAF5l4nd/raw"))() end)
+Tab3:NewButton("🟡 แมพสว่าง", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Lighting/Lighting.lua"))() end)
 Tab3:NewButton("🟡 เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
 Tab3:NewButton("🟡 แป้นพิมพ์", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))() end)
 Tab3:NewButton("🟡 ปรับความเร็วรถ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Speed-car/Speed-car.lua"))() end)
