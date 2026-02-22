@@ -1,49 +1,29 @@
 -- Bypass SimpleSpy สำหรับแมพที่รัน SimpleSpy แล้วโดนเตะ คร๊าบบบ
 
+if setreadonly then
+    for k, v in pairs(getgc(true)) do
+        if pcall(function() return rawget(v, "indexInstance") end) 
+        and type(rawget(v, "indexInstance")) == "table" 
+        and rawget(v, "indexInstance")[1] == "kick" then
 
-local getgc = getgc or get_gc_objects
-local setreadonly = setreadonly or make_writeable
-local isreadonly = isreadonly or is_readonly
-
-if not getgc then
-    warn("Executor ของคุณไม่รองรับ getgc() - สคริปต์ไม่สามารถทำงานได้คร๊าบบบ")
-    return
-end
-
-print("Starting Anti-Kick Bypass...")
-
-for _, v in pairs(getgc(true)) do
-    local success, result = pcall(function()
-        return type(v) == "table" and rawget(v, "indexInstance")
-    end)
-
-    if success and type(result) == "table" then
-        if result[1] and tostring(result[1]):lower() == "kick" then
-            
-            local function applyBypass()
-                v.tvk = {"kick", function() 
-                    print("Kick prevented!") 
-                    return nil 
-                end}
-            end
-
-            if isreadonly and setreadonly then
-                if isreadonly(v) then
-                    setreadonly(v, false)
-                    applyBypass()
-                    setreadonly(v, true)
-                else
-                    applyBypass()
-                end
-                print("Bypass applied to a protected table.")
+            if not isreadonly(v) then
+                print("Readonly = false \n Continuing...")
+                v.tvk = {"kick", function() return game.Workspace:WaitForChild("") end}
+                wait(1.5)
+                print("Bypassed")
             else
-                pcall(applyBypass)
+            print("Readonly = true \n bypassing readonly...")
+                setreadonly(v, false)
+                v.tvk = {"kick", function() return game.Workspace:WaitForChild("") end}
+                setreadonly(v, true)
+                wait(1.5)
+                print("Finished \n Bypassed")
             end
         end
     end
+else
+    print("setreadonly is not available in this environment.")
 end
-
-print("Bypass Process Finished.")
 
 
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
