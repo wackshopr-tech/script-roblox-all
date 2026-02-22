@@ -196,7 +196,7 @@ local Tab4 = Window:NewTab("แกล้ง", "🤡")
 local Tab5 = Window:NewTab("ดวงตเทพมั้งง", "👁️")
 
 -- หลัก
-Tab1:NewButton("🔴 บิน", function() loadstring(game:HttpGet("https://pastebin.com/raw/iUVERBrs"))() end)
+Tab1:NewButton("🔴 บิน", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Fly%20V3/Fly-V3.lua"))() end)
 Tab1:NewButton("🔴 กระโดดไม่จำกัด", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Infinite%20Jump/Infinite-Jump.lua"))() end)
 Tab1:NewButton("🔴 วิ่งเร็ว", function() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100 end)
 Tab1:NewButton("🔴 วาป", function() loadstring(game:HttpGet("https://pastebin.com/raw/K5FYvtvN"))() end)
