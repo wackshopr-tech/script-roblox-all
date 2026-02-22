@@ -216,13 +216,13 @@ Tab3:NewButton("🟡 เพิ่มความลื่น", function() loadst
 Tab3:NewButton("🟡 แมพสว่าง", function() loadstring(game:HttpGet("https://pastefy.app/FAF5l4nd/raw"))() end)
 Tab3:NewButton("🟡 เสกของ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub-Backup/main/gametoolgiver.lua"))() end)
 Tab3:NewButton("🟡 แป้นพิมพ์", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))() end)
+Tab3:NewButton("🟡 ปรับความเร็วรถ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Speed-car/Speed-car.lua"))() end)
 Tab3:NewButton("🟡 Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
 Tab3:NewButton("🟡 Kruel Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Veaquach/kruel/refs/heads/main/kruel%20obf.txt"))() end)
 Tab3:NewButton("🟡 Quirky CMD", function() loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))() end)
 
 
 -- แกล้ง
-Tab4:NewButton("🟢 ปรับความเร็วรถ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Speed-car/Speed-car.lua"))() end)
 Tab4:NewButton("🟢 หลุมดำ", function() loadstring(game:HttpGet("https://pastebin.com/raw/pkZnU5P5"))() end)
 Tab4:NewButton("🟢 ชนกระเด็น", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/FLINGCORE/FLINGCORE.lua"))() end)
 Tab4:NewButton("🟢 ดึงคน false", function() loadstring(game:HttpGet("https://pastefy.app/25ye9OEx/raw"))() end)
