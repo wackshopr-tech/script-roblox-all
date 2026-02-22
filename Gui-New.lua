@@ -200,7 +200,7 @@ Tab1:NewButton("🔴 บิน", function() loadstring(game:HttpGet("https://raw
 Tab1:NewButton("🔴 กระโดดไม่จำกัด", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Infinite%20Jump/Infinite-Jump.lua"))() end)
 Tab1:NewButton("🔴 วิ่งเร็ว", function() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100 end)
 Tab1:NewButton("🔴 วาป", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Click%20TP/Click-TP.lua"))() end)
-Tab1:NewButton("🔴 ทะลุกำแพง", function() loadstring(game:HttpGet("https://pastebin.com/raw/7Qab6kg9"))() end)
+Tab1:NewButton("🔴 ทะลุกำแพง", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/Through%20the%20wall/main.lua"))() end)
 Tab1:NewButton("🔴 หายตัว", function() loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf"))() end)
 Tab1:NewButton("🔴 อมตะ", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/SCRIPT-ALL-BY-WACK-SHOP/GOD-MAIN/GOD-MAIN.lua"))() end)
 
