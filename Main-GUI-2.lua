@@ -1,4 +1,3 @@
-loadstring(game:HttpGetAsync("https://pastefy.app/wvDpv6tL/raw"))()
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
@@ -129,3 +128,6 @@ end)
 newBtn.MouseButton1Click:Connect(function()
     runScript("https://raw.githubusercontent.com/wackshopr-tech/script-roblox-all/refs/heads/main/Gui-New.lua")
 end)
+
+
+loadstring(game:HttpGetAsync("https://pastefy.app/wvDpv6tL/raw"))()
