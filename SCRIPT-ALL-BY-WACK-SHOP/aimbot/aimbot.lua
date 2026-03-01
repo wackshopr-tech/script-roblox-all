@@ -9,25 +9,30 @@ local Aimlock = false
 local FOVPercent = 20
 
 -- =========================
--- FOV CIRCLE
+-- FOV CIRCLE (Drawing Lib)
 -- =========================
 
 local Circle = Drawing.new("Circle")
 Circle.Thickness = 2
-Circle.NumSides = 100
+Circle.NumSides = 60 -- ปรับลดลงเล็กน้อยเพื่อให้ลื่นขึ้นบนมือถือ
 Circle.Filled = false
-Circle.Transparency = 0.9
+Circle.Transparency = 1 -- ปรับให้ชัดเจนที่สุด
 Circle.Color = Color3.fromRGB(0, 170, 255)
 Circle.Visible = false
 
 local function UpdateCircle()
     local vp = Camera.ViewportSize
-    Circle.Radius = math.min(vp.X, vp.Y) * (FOVPercent / 100) / 2
+    if vp.X == 0 or vp.Y == 0 then return end -- ป้องกัน Error ช่วงเริ่มเกม
+
+    -- คำนวณรัศมีให้สมดุลกับขนาดหน้าจอมือถือ
+    -- ใช้ math.min เพื่อให้วงกลมไม่ใหญ่เกินหน้าจอในเครื่องที่จอแคบ
+    local baseRes = math.min(vp.X, vp.Y)
+    Circle.Radius = (baseRes / 2) * (FOVPercent / 100)
     Circle.Position = Vector2.new(vp.X / 2, vp.Y / 2)
 end
 
 -- =========================
--- TARGET FIND
+-- TARGET FINDING
 -- =========================
 
 local function GetTarget()
@@ -41,6 +46,7 @@ local function GetTarget()
 
             if onScreen then
                 local mag = (Vector2.new(pos.X, pos.Y) - center).Magnitude
+                -- ตรวจสอบว่าศัตรูอยู่ในวงกลม FOV หรือไม่
                 if mag <= Circle.Radius and mag < dist then
                     closest = head
                     dist = mag
@@ -48,158 +54,100 @@ local function GetTarget()
             end
         end
     end
-
     return closest
 end
 
+-- =========================
+-- MAIN LOOP
+-- =========================
+
 RunService.RenderStepped:Connect(function()
     UpdateCircle()
+    Circle.Visible = Aimlock -- บังคับค่า Visible ให้ตรงกับสถานะ Aimlock เสมอ
 
     if Aimlock then
-        local t = GetTarget()
-        if t then
-            Camera.CFrame = CFrame.lookAt(Camera.CFrame.Position, t.Position)
+        local target = GetTarget()
+        if target then
+            -- ล็อคเป้าหมาย (Camera CFrame)
+            Camera.CFrame = CFrame.lookAt(Camera.CFrame.Position, target.Position)
         end
     end
 end)
 
 -- =========================
--- GUI
+-- GUI SETUP
 -- =========================
 
 local Gui = Instance.new("ScreenGui")
-Gui.Name = "AimlockGUI"
+Gui.Name = "AimlockGUI_MobileFix"
 Gui.IgnoreGuiInset = true
 Gui.ResetOnSpawn = false
-Gui.DisplayOrder = 999999
 Gui.Parent = CoreGui
 
 local Main = Instance.new("Frame", Gui)
 Main.Size = UDim2.fromOffset(260, 190)
-Main.Position = UDim2.fromScale(0.05, 0.35)
+Main.Position = UDim2.fromScale(0.1, 0.3) -- เลื่อนตำแหน่งเริ่มให้ห่างจากขอบจอเล็กน้อย
 Main.BackgroundColor3 = Color3.fromRGB(15, 20, 35)
-Main.BorderSizePixel = 0
 Main.Active = true
-Main.Selectable = true
+Main.Draggable = true -- เปิดการลากพื้นฐานเพื่อให้รองรับ Mobile ง่ายขึ้น
 Instance.new("UICorner", Main).CornerRadius = UDim.new(0, 14)
 
 local Stroke = Instance.new("UIStroke", Main)
 Stroke.Color = Color3.fromRGB(0, 170, 255)
-Stroke.Thickness = 1.5
-
--- =========================
--- DRAG (PC + MOBILE)
--- =========================
-
-do
-    local dragging = false
-    local dragInput
-    local dragStart
-    local startPos
-
-    local function update(input)
-        local delta = input.Position - dragStart
-        Main.Position = UDim2.new(
-            startPos.X.Scale,
-            startPos.X.Offset + delta.X,
-            startPos.Y.Scale,
-            startPos.Y.Offset + delta.Y
-        )
-    end
-
-    Main.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1
-        or input.UserInputType == Enum.UserInputType.Touch then
-
-            dragging = true
-            dragStart = input.Position
-            startPos = Main.Position
-
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                end
-            end)
-        end
-    end)
-
-    Main.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement
-        or input.UserInputType == Enum.UserInputType.Touch then
-            dragInput = input
-        end
-    end)
-
-    UIS.InputChanged:Connect(function(input)
-        if input == dragInput and dragging then
-            update(input)
-        end
-    end)
-end
-
--- =========================
--- TITLE
--- =========================
+Stroke.Thickness = 2
 
 local Title = Instance.new("TextLabel", Main)
 Title.Size = UDim2.new(1,0,0,35)
 Title.BackgroundTransparency = 1
-Title.Text = "⚡ WACK AIMLOCK"
+Title.Text = "⚡ MOBILE AIMLOCK FIX"
 Title.TextColor3 = Color3.fromRGB(0, 200, 255)
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 16
 
 -- =========================
--- TOGGLE
+-- TOGGLE BUTTON
 -- =========================
 
 local Toggle = Instance.new("TextButton", Main)
-Toggle.Size = UDim2.new(1,-20,0,36)
+Toggle.Size = UDim2.new(1,-20,0,45)
 Toggle.Position = UDim2.new(0,10,0,45)
-Toggle.Text = "▶ เปิด Aimlock"
+Toggle.Text = "▶ เปิดใช้งาน"
 Toggle.Font = Enum.Font.GothamSemibold
-Toggle.TextSize = 14
+Toggle.TextSize = 16
 Toggle.TextColor3 = Color3.new(1,1,1)
 Toggle.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
-Toggle.BorderSizePixel = 0
 Instance.new("UICorner", Toggle).CornerRadius = UDim.new(0,10)
 
 Toggle.MouseButton1Click:Connect(function()
     Aimlock = not Aimlock
-    Toggle.Text = Aimlock and "■ ปิด Aimlock" or "▶ เปิด Aimlock"
+    Toggle.Text = Aimlock and "■ ปิดการทำงาน" or "▶ เปิดใช้งาน"
     Toggle.BackgroundColor3 = Aimlock and Color3.fromRGB(0,170,255) or Color3.fromRGB(0,100,200)
     Circle.Visible = Aimlock
 end)
 
 -- =========================
--- FOV TEXT
+-- SLIDER SYSTEM
 -- =========================
 
 local FovText = Instance.new("TextLabel", Main)
-FovText.Position = UDim2.new(0,10,0,95)
+FovText.Position = UDim2.new(0,10,0,105)
 FovText.Size = UDim2.new(1,-20,0,20)
 FovText.BackgroundTransparency = 1
-FovText.Text = "FOV : "..FOVPercent.."%"
+FovText.Text = "FOV SIZE : " .. FOVPercent .. "%"
 FovText.TextColor3 = Color3.fromRGB(180,220,255)
 FovText.Font = Enum.Font.Gotham
-FovText.TextSize = 13
+FovText.TextSize = 14
 FovText.TextXAlignment = Enum.TextXAlignment.Left
 
--- =========================
--- SLIDER (PC + MOBILE)
--- =========================
-
 local Bar = Instance.new("Frame", Main)
-Bar.Position = UDim2.new(0,10,0,120)
-Bar.Size = UDim2.new(1,-20,0,12)
+Bar.Position = UDim2.new(0,10,0,130)
+Bar.Size = UDim2.new(1,-20,0,14)
 Bar.BackgroundColor3 = Color3.fromRGB(40,60,90)
-Bar.BorderSizePixel = 0
 Instance.new("UICorner", Bar).CornerRadius = UDim.new(0,8)
 
 local Fill = Instance.new("Frame", Bar)
-Fill.Size = UDim2.new(FOVPercent/100,0,1,0)
+Fill.Size = UDim2.new(FOVPercent/100, 0, 1, 0)
 Fill.BackgroundColor3 = Color3.fromRGB(0,170,255)
-Fill.BorderSizePixel = 0
 Instance.new("UICorner", Fill).CornerRadius = UDim.new(0,8)
 
 local sliding = false
@@ -208,34 +156,30 @@ local function UpdateSlider(inputX)
     local relativeX = inputX - Bar.AbsolutePosition.X
     local pct = math.clamp(relativeX / Bar.AbsoluteSize.X, 0, 1)
 
-    FOVPercent = math.floor(pct * 100 + 0.5)
+    FOVPercent = math.floor(pct * 100)
     Fill.Size = UDim2.new(pct, 0, 1, 0)
-    FovText.Text = "FOV : " .. FOVPercent .. "%"
+    FovText.Text = "FOV SIZE : " .. FOVPercent .. "%"
     UpdateCircle()
 end
 
+-- สำหรับ Mobile Touch + PC Mouse
 Bar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1
-    or input.UserInputType == Enum.UserInputType.Touch then
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         sliding = true
         UpdateSlider(input.Position.X)
     end
 end)
 
 UIS.InputChanged:Connect(function(input)
-    if sliding and (
-        input.UserInputType == Enum.UserInputType.MouseMovement
-        or input.UserInputType == Enum.UserInputType.Touch
-    ) then
+    if sliding and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
         UpdateSlider(input.Position.X)
     end
 end)
 
 UIS.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1
-    or input.UserInputType == Enum.UserInputType.Touch then
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         sliding = false
     end
 end)
 
-print("Aimlock Loaded Successfully (Mobile Supported)")
+print("Aimlock Mobile Fix Loaded!")
