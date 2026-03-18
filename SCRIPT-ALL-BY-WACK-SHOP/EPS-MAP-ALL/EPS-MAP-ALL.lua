@@ -10,6 +10,7 @@ local function applyESP(player, character)
 	local root = character:WaitForChild("HumanoidRootPart", 5)
 	if not head or not root then return end
 
+	-- ลบ ESP เก่าออกก่อนเพื่อป้องกันการทำงานซ้ำซ้อน
 	if character:FindFirstChild("PlayerHighlight") then
 		character.PlayerHighlight:Destroy()
 	end
@@ -18,19 +19,17 @@ local function applyESP(player, character)
 		head.NameBillboard:Destroy()
 	end
 
-	if character:FindFirstChild("TracerLine") then
-		character.TracerLine:Destroy()
-	end
-
+	-- สร้างระบบ Highlight (เส้นขอบตัวละคร)
 	local highlight = Instance.new("Highlight")
 	highlight.Name = "PlayerHighlight"
 	highlight.Adornee = character
-	highlight.FillTransparency = 1
+	highlight.FillTransparency = 1 -- ตั้งเป็น 1 เพื่อไม่ให้ตัวละครทึบแสง
 	highlight.OutlineTransparency = 0
-	highlight.OutlineColor = Color3.fromRGB(255, 255, 0)
+	highlight.OutlineColor = Color3.fromRGB(255, 255, 0) -- สีเหลือง
 	highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 	highlight.Parent = character
 
+	-- สร้างระบบชื่อบนหัว (BillboardGui)
 	local billboard = Instance.new("BillboardGui")
 	billboard.Name = "NameBillboard"
 	billboard.Size = UDim2.new(0, 300, 0, 80)
@@ -50,30 +49,6 @@ local function applyESP(player, character)
 	text.Font = Enum.Font.SourceSansBold
 	text.TextSize = 13
 	text.Parent = billboard
-
-	local line = Drawing.new("Line")
-	line.Color = Color3.fromRGB(255, 255, 0)
-	line.Thickness = 2
-	line.Visible = false
-
-	character:SetAttribute("TracerLine", true)
-
-	RunService.RenderStepped:Connect(function()
-		if not character.Parent then
-			line:Remove()
-			return
-		end
-
-		local screenPos, onScreen = Camera:WorldToViewportPoint(root.Position)
-		if onScreen then
-			local viewport = Camera.ViewportSize
-			line.From = Vector2.new(viewport.X / 2, viewport.Y)
-			line.To = Vector2.new(screenPos.X, screenPos.Y)
-			line.Visible = true
-		else
-			line.Visible = false
-		end
-	end)
 end
 
 local function setupPlayer(player)
@@ -86,8 +61,10 @@ local function setupPlayer(player)
 	end
 end
 
+-- รันระบบสำหรับผู้เล่นที่อยู่ในเซิร์ฟเวอร์อยู่แล้ว
 for _, player in ipairs(Players:GetPlayers()) do
 	setupPlayer(player)
 end
 
+-- รันระบบสำหรับผู้เล่นที่เพิ่งเข้าเซิร์ฟเวอร์มาใหม่
 Players.PlayerAdded:Connect(setupPlayer)
