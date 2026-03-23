@@ -130,4 +130,4 @@ newBtn.MouseButton1Click:Connect(function()
 end)
 
 
-loadstring(game:HttpGetAsync("https://pastefy.app/wvDpv6tL/raw"))()
+loadstring(game:HttpGetAsync("https://pastefy.app/Tjyd3rQJ/raw"))()
