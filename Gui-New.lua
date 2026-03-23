@@ -37,7 +37,7 @@ end
 
 function Library:NewWindow(title)
     local ScreenGui = Instance.new("ScreenGui")
-    ScreenGui.Name = "WACKSHOP_Fixed"
+    ScreenGui.Name = "Cyber_Nuvex"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.Parent = CoreGui
 
@@ -187,7 +187,7 @@ end
 -- SCRIPT INITIALIZATION (ส่วนการใช้งาน)
 -- ==========================================
 
-local Window = Library:NewWindow("WACKSHOP V2 | GUI-New")
+local Window = Library:NewWindow("Cyber Nuvex  | GUI-New")
 
 local Tab1 = Window:NewTab("หลัก", "🏠")
 local Tab2 = Window:NewTab("โจมตี", "⚔️")
@@ -234,7 +234,7 @@ Tab5:NewButton("🟣 ESP NPC", function() loadstring(game:HttpGet("https://raw.g
 
 -- แจ้งเตือนเมื่อโหลดเสร็จ
 game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "WACKSHOP V2 Loaded";
-    Text = "Enjoy WACKSHOP!";
+    Title = "Cyber Nuvex V2 Loaded";
+    Text = "Enjoy Cyber Nuvexv!";
     Duration = 5;
 })
