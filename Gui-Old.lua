@@ -2,7 +2,7 @@ local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local HttpService = game:GetService("HttpService")
-local discordLink = "https://discord.gg/Tr67FCsEm8"
+local discordLink = "https://discord.com/invite/cnx"
 if setclipboard then
     setclipboard(discordLink)
     print("✅ คัดลอกลิงก์ Discord แล้ว: " .. discordLink)
