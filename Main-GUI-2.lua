@@ -11,7 +11,7 @@ pcall(function()
 end)
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "WackShopPremium"
+ScreenGui.Name = "CyberNuvex"
 ScreenGui.Parent = CoreGui
 
 local function Notify(text)
@@ -36,7 +36,7 @@ local function Notify(text)
     task.delay(0.5, function() NotifFrame:Destroy() end)
 end
 
-SetClipboard("https://discord.gg/X6dsp3KxVF")
+SetClipboard("https://discord.com/invite/cnx")
 Notify("✅ คัดลอกลิงก์ดิสคอร์ดเจ้าของสคริปต์สำเร็จ!")
 
 local Main = Instance.new("Frame", ScreenGui)
@@ -70,7 +70,7 @@ local Title = Instance.new("TextLabel", Main)
 Title.Position = UDim2.fromOffset(0, 20)
 Title.Size = UDim2.new(1, 0, 0, 40)
 Title.BackgroundTransparency = 1
-Title.Text = "WACK SHOP ภาษาไทย"
+Title.Text = "Cyber Nuvex ภาษาไทย"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.GothamBlack
 Title.TextSize = 26
