@@ -11,7 +11,7 @@ pcall(function()
 end)
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "CyberNuvex"
+ScreenGui.Name = "X-WACK_STORE"
 ScreenGui.Parent = CoreGui
 
 local function Notify(text)
@@ -36,8 +36,8 @@ local function Notify(text)
     task.delay(0.5, function() NotifFrame:Destroy() end)
 end
 
-SetClipboard("https://discord.com/invite/cnx")
-Notify("✅ คัดลอกลิงก์ดิสคอร์ดเจ้าของสคริปต์สำเร็จ!")
+SetClipboard("https://discord.gg/eaS4MM6F4x")
+Notify("✅ คัดลอกดิสเราแล้วว!")
 
 local Main = Instance.new("Frame", ScreenGui)
 Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -70,7 +70,7 @@ local Title = Instance.new("TextLabel", Main)
 Title.Position = UDim2.fromOffset(0, 20)
 Title.Size = UDim2.new(1, 0, 0, 40)
 Title.BackgroundTransparency = 1
-Title.Text = "Cyber Nuvex ภาษาไทย"
+Title.Text = "X-WACK_STORE ภาษาไทย"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.GothamBlack
 Title.TextSize = 26
@@ -113,8 +113,8 @@ local function createButton(text, y, color)
     return b
 end
 
-local oldBtn = createButton("⭐ GUI เก่า ฟังชั่นเดิม ", 110, Color3.fromRGB(255, 150, 0))
-local newBtn = createButton("🔥 GUI ใหม่ ฟังชั่นเยอะ", 185, Color3.fromRGB(0, 200, 255))
+local oldBtn = createButton("👑 GUI เก่า ฟังชั่นเดิม ", 110, Color3.fromRGB(255, 150, 0))
+local newBtn = createButton("👑 GUI ใหม่ ฟังชั่นเยอะ", 185, Color3.fromRGB(0, 200, 255))
 
 local function runScript(url)
     ScreenGui:Destroy()
