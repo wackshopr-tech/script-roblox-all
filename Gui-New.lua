@@ -187,7 +187,7 @@ end
 -- SCRIPT INITIALIZATION (ส่วนการใช้งาน)
 -- ==========================================
 
-local Window = Library:NewWindow("Cyber Nuvex  | GUI-New")
+local Window = Library:NewWindow("X-WACK_STORE  | ระบบใหม่")
 
 local Tab1 = Window:NewTab("หลัก", "🏠")
 local Tab2 = Window:NewTab("โจมตี", "⚔️")
@@ -234,7 +234,7 @@ Tab5:NewButton("🟣 ESP NPC", function() loadstring(game:HttpGet("https://raw.g
 
 -- แจ้งเตือนเมื่อโหลดเสร็จ
 game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "Cyber Nuvex V2 Loaded";
-    Text = "Enjoy Cyber Nuvexv!";
+    Title = "X-WACK_STORE V2 Loaded";
+    Text = "Enjoy X-WACK_STORE!";
     Duration = 5;
 })
