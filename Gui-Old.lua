@@ -2,7 +2,7 @@ local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local HttpService = game:GetService("HttpService")
-local discordLink = "https://discord.com/invite/cnx"
+local discordLink = "https://discord.gg/eaS4MM6F4x"
 if setclipboard then
     setclipboard(discordLink)
     print("✅ คัดลอกลิงก์ Discord แล้ว: " .. discordLink)
@@ -63,7 +63,7 @@ local function createUI()
     TitleLabel1.Size = UDim2.new(1, 0, 0, 50)
     TitleLabel1.Position = UDim2.new(0, 0, 0, 5)
     TitleLabel1.Font = Enum.Font.GothamBlack
-    TitleLabel1.Text = "👑 Cyber Nuvex 👑"
+    TitleLabel1.Text = "X-WACK_STORE"
     TitleLabel1.TextSize = 26
     TitleLabel1.TextColor3 = Color3.fromRGB(255, 255, 255)
     local Grad1 = Instance.new("UIGradient", TitleLabel1)
@@ -78,7 +78,7 @@ local function createUI()
     TitleLabel2.Size = UDim2.new(1, 0, 0, 40)
     TitleLabel2.Position = UDim2.new(0, 0, 0, 50)
     TitleLabel2.Font = Enum.Font.GothamBold
-    TitleLabel2.Text = "การกลับมาของ WACK SHOP"
+    TitleLabel2.Text = "BY FRIEND KRK"
     TitleLabel2.TextSize = 16
     TitleLabel2.TextColor3 = Color3.fromRGB(180, 220, 255)
     local FunctionButtonsFrame = Instance.new("ScrollingFrame")
