@@ -6,7 +6,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 pcall(function()
-	if CoreGui:FindFirstChild("Cyber_Nuvex") then
+	if CoreGui:FindFirstChild("X-WACK_STORE") then
 		CoreGui.Cyber_Nuvex:Destroy()
 	end
 end)
@@ -38,7 +38,7 @@ end
 
 function Library:NewWindow(title)
 	local ScreenGui = Instance.new("ScreenGui")
-	ScreenGui.Name = "Cyber_Nuvex"
+	ScreenGui.Name = "X-WACK_STORE"
 	ScreenGui.ResetOnSpawn = false
 	ScreenGui.Parent = CoreGui
 
@@ -278,7 +278,7 @@ function Library:NewWindow(title)
 	return WindowFunctions
 end
 
-local Window = Library:NewWindow("X-WACK STORE  |  Cyber-Nuvex V2")
+local Window = Library:NewWindow("X-WACK STORE  |  X-WACK STORE V2")
 
 local Tab1 = Window:NewTab("หลัก", "🏠")
 local Tab2 = Window:NewTab("โจมตี", "⚔️")
@@ -317,6 +317,6 @@ Tab5:NewButton("🟣 ESP บอท (ESP NPC)", function() loadstring(game:HttpGe
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "X-WACK STORE";
-	Text = "ระบบ Cyber-Nuvex V2 โหลดเสร็จสิ้นแล้ว!";
+	Text = "X-WACK STORE V2 โหลดเสร็จสิ้นแล้ว!";
 	Duration = 5;
 })
