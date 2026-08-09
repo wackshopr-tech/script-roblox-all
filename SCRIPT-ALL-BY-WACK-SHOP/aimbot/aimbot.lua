@@ -3,7 +3,9 @@ local RunService = game:GetService("RunService")
 local UIS = game:GetService("UserInputService")
 local Camera = workspace.CurrentCamera
 local LocalPlayer = Players.LocalPlayer
-local CoreGui = game:GetService("CoreGui")
+
+-- ตรวจสอบการรองรับ GUI Parent (CoreGui สำหรับ Executor / PlayerGui สำหรับทดสอบ)
+local GuiParent = (gethui and gethui()) or game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui")
 
 local Aimlock = false
 local FOVPercent = 20
@@ -13,19 +15,17 @@ local FOVPercent = 20
 -- =========================
 
 local Circle = Drawing.new("Circle")
-Circle.Thickness = 2
-Circle.NumSides = 60 -- ปรับลดลงเล็กน้อยเพื่อให้ลื่นขึ้นบนมือถือ
+Circle.Thickness = 1.5
+Circle.NumSides = 45 -- ปรับเพื่อประหยัดทรัพยากรบนมือถือ
 Circle.Filled = false
-Circle.Transparency = 1 -- ปรับให้ชัดเจนที่สุด
+Circle.Transparency = 0.8
 Circle.Color = Color3.fromRGB(0, 170, 255)
 Circle.Visible = false
 
 local function UpdateCircle()
     local vp = Camera.ViewportSize
-    if vp.X == 0 or vp.Y == 0 then return end -- ป้องกัน Error ช่วงเริ่มเกม
-
-    -- คำนวณรัศมีให้สมดุลกับขนาดหน้าจอมือถือ
-    -- ใช้ math.min เพื่อให้วงกลมไม่ใหญ่เกินหน้าจอในเครื่องที่จอแคบ
+    if vp.X == 0 or vp.Y == 0 then return end
+    
     local baseRes = math.min(vp.X, vp.Y)
     Circle.Radius = (baseRes / 2) * (FOVPercent / 100)
     Circle.Position = Vector2.new(vp.X / 2, vp.Y / 2)
@@ -46,7 +46,6 @@ local function GetTarget()
 
             if onScreen then
                 local mag = (Vector2.new(pos.X, pos.Y) - center).Magnitude
-                -- ตรวจสอบว่าศัตรูอยู่ในวงกลม FOV หรือไม่
                 if mag <= Circle.Radius and mag < dist then
                     closest = head
                     dist = mag
@@ -63,93 +62,118 @@ end
 
 RunService.RenderStepped:Connect(function()
     UpdateCircle()
-    Circle.Visible = Aimlock -- บังคับค่า Visible ให้ตรงกับสถานะ Aimlock เสมอ
+    Circle.Visible = Aimlock
 
     if Aimlock then
         local target = GetTarget()
         if target then
-            -- ล็อคเป้าหมาย (Camera CFrame)
             Camera.CFrame = CFrame.lookAt(Camera.CFrame.Position, target.Position)
         end
     end
 end)
 
 -- =========================
--- GUI SETUP
+-- COMPACT MOBILE GUI
 -- =========================
 
 local Gui = Instance.new("ScreenGui")
-Gui.Name = "AimlockGUI_MobileFix"
+Gui.Name = "MobileAimlock_Mini"
 Gui.IgnoreGuiInset = true
 Gui.ResetOnSpawn = false
-Gui.Parent = CoreGui
+Gui.Parent = GuiParent
 
+-- Main Frame (ปรับขนาดลงเหลือ 170x120)
 local Main = Instance.new("Frame", Gui)
-Main.Size = UDim2.fromOffset(260, 190)
-Main.Position = UDim2.fromScale(0.1, 0.3) -- เลื่อนตำแหน่งเริ่มให้ห่างจากขอบจอเล็กน้อย
-Main.BackgroundColor3 = Color3.fromRGB(15, 20, 35)
+Main.Size = UDim2.fromOffset(170, 120)
+Main.Position = UDim2.fromScale(0.05, 0.2)
+Main.BackgroundColor3 = Color3.fromRGB(15, 18, 28)
 Main.Active = true
-Main.Draggable = true -- เปิดการลากพื้นฐานเพื่อให้รองรับ Mobile ง่ายขึ้น
-Instance.new("UICorner", Main).CornerRadius = UDim.new(0, 14)
+Main.Draggable = true
 
-local Stroke = Instance.new("UIStroke", Main)
-Stroke.Color = Color3.fromRGB(0, 170, 255)
-Stroke.Thickness = 2
+local MainCorner = Instance.new("UICorner", Main)
+MainCorner.CornerRadius = UDim.new(0, 10)
 
+local MainStroke = Instance.new("UIStroke", Main)
+MainStroke.Color = Color3.fromRGB(0, 170, 255)
+MainStroke.Thickness = 1.5
+
+-- Header / Title Bar
 local Title = Instance.new("TextLabel", Main)
-Title.Size = UDim2.new(1,0,0,35)
+Title.Size = UDim2.new(1, -30, 0, 28)
+Title.Position = UDim2.new(0, 8, 0, 0)
 Title.BackgroundTransparency = 1
-Title.Text = "⚡ MOBILE AIMLOCK FIX"
+Title.Text = "⚡ AIMLOCK"
 Title.TextColor3 = Color3.fromRGB(0, 200, 255)
 Title.Font = Enum.Font.GothamBold
-Title.TextSize = 16
+Title.TextSize = 12
+Title.TextXAlignment = Enum.TextXAlignment.Left
 
--- =========================
--- TOGGLE BUTTON
--- =========================
+-- ปุ่ม พับ/กาง หน้าจอ (Minimize Button)
+local MiniBtn = Instance.new("TextButton", Main)
+MiniBtn.Size = UDim2.new(0, 22, 0, 22)
+MiniBtn.Position = UDim2.new(1, -26, 0, 3)
+MiniBtn.Text = "-"
+MiniBtn.Font = Enum.Font.GothamBold
+MiniBtn.TextSize = 14
+MiniBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+MiniBtn.BackgroundColor3 = Color3.fromRGB(25, 32, 48)
+Instance.new("UICorner", MiniBtn).CornerRadius = UDim.new(0, 6)
 
-local Toggle = Instance.new("TextButton", Main)
-Toggle.Size = UDim2.new(1,-20,0,45)
-Toggle.Position = UDim2.new(0,10,0,45)
-Toggle.Text = "▶ เปิดใช้งาน"
-Toggle.Font = Enum.Font.GothamSemibold
-Toggle.TextSize = 16
-Toggle.TextColor3 = Color3.new(1,1,1)
-Toggle.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
-Instance.new("UICorner", Toggle).CornerRadius = UDim.new(0,10)
+local Container = Instance.new("Frame", Main)
+Container.Size = UDim2.new(1, 0, 1, -28)
+Container.Position = UDim2.new(0, 0, 0, 28)
+Container.BackgroundTransparency = 1
+
+local isMinimized = false
+MiniBtn.MouseButton1Click:Connect(function()
+    isMinimized = not isMinimized
+    Container.Visible = not isMinimized
+    Main.Size = isMinimized and UDim2.fromOffset(170, 28) or UDim2.fromOffset(170, 120)
+    MiniBtn.Text = isMinimized and "+" or "-"
+end)
+
+-- Toggle Button
+local Toggle = Instance.new("TextButton", Container)
+Toggle.Size = UDim2.new(1, -16, 0, 32)
+Toggle.Position = UDim2.new(0, 8, 0, 4)
+Toggle.Text = "OFF"
+Toggle.Font = Enum.Font.GothamBold
+Toggle.TextSize = 13
+Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.BackgroundColor3 = Color3.fromRGB(40, 45, 60)
+Instance.new("UICorner", Toggle).CornerRadius = UDim.new(0, 8)
 
 Toggle.MouseButton1Click:Connect(function()
     Aimlock = not Aimlock
-    Toggle.Text = Aimlock and "■ ปิดการทำงาน" or "▶ เปิดใช้งาน"
-    Toggle.BackgroundColor3 = Aimlock and Color3.fromRGB(0,170,255) or Color3.fromRGB(0,100,200)
+    Toggle.Text = Aimlock and "ON" or "OFF"
+    Toggle.BackgroundColor3 = Aimlock and Color3.fromRGB(0, 170, 255) or Color3.fromRGB(40, 45, 60)
     Circle.Visible = Aimlock
 end)
 
--- =========================
--- SLIDER SYSTEM
--- =========================
-
-local FovText = Instance.new("TextLabel", Main)
-FovText.Position = UDim2.new(0,10,0,105)
-FovText.Size = UDim2.new(1,-20,0,20)
+-- FOV Label
+local FovText = Instance.new("TextLabel", Container)
+FovText.Size = UDim2.new(1, -16, 0, 16)
+FovText.Position = UDim2.new(0, 8, 0, 42)
 FovText.BackgroundTransparency = 1
-FovText.Text = "FOV SIZE : " .. FOVPercent .. "%"
-FovText.TextColor3 = Color3.fromRGB(180,220,255)
+FovText.Text = "FOV: " .. FOVPercent .. "%"
+FovText.TextColor3 = Color3.fromRGB(180, 210, 245)
 FovText.Font = Enum.Font.Gotham
-FovText.TextSize = 14
+FovText.TextSize = 11
 FovText.TextXAlignment = Enum.TextXAlignment.Left
 
-local Bar = Instance.new("Frame", Main)
-Bar.Position = UDim2.new(0,10,0,130)
-Bar.Size = UDim2.new(1,-20,0,14)
-Bar.BackgroundColor3 = Color3.fromRGB(40,60,90)
-Instance.new("UICorner", Bar).CornerRadius = UDim.new(0,8)
+-- FOV Slider Bar
+local Bar = Instance.new("Frame", Container)
+Bar.Size = UDim2.new(1, -16, 0, 12)
+Bar.Position = UDim2.new(0, 8, 0, 62)
+Bar.BackgroundColor3 = Color3.fromRGB(30, 40, 60)
+Instance.new("UICorner", Bar).CornerRadius = UDim.new(0, 6)
 
 local Fill = Instance.new("Frame", Bar)
-Fill.Size = UDim2.new(FOVPercent/100, 0, 1, 0)
-Fill.BackgroundColor3 = Color3.fromRGB(0,170,255)
-Instance.new("UICorner", Fill).CornerRadius = UDim.new(0,8)
+Fill.Size = UDim2.new(FOVPercent / 100, 0, 1, 0)
+Fill.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Instance.new("UICorner", Fill).CornerRadius = UDim.new(0, 6)
 
+-- Touch Input Handling สำหรับ Slider
 local sliding = false
 
 local function UpdateSlider(inputX)
@@ -158,11 +182,10 @@ local function UpdateSlider(inputX)
 
     FOVPercent = math.floor(pct * 100)
     Fill.Size = UDim2.new(pct, 0, 1, 0)
-    FovText.Text = "FOV SIZE : " .. FOVPercent .. "%"
+    FovText.Text = "FOV: " .. FOVPercent .. "%"
     UpdateCircle()
 end
 
--- สำหรับ Mobile Touch + PC Mouse
 Bar.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         sliding = true
@@ -181,5 +204,3 @@ UIS.InputEnded:Connect(function(input)
         sliding = false
     end
 end)
-
-print("Aimlock Mobile Fix Loaded!")
